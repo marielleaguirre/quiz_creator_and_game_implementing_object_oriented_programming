@@ -10,6 +10,11 @@ class QuizCreator:
     def save_to_file(self):
 
     def create_quiz(self):
+        question = input(colored("Enter your question: ", "blue")).strip()
+        choices = {}
+        for option in ['a', 'b', 'c', 'd']:
+            choice = input(colored(f" ⋆˚✿˖° Enter choice {option.upper()}: ", "cyan")).strip()
+            choices[option] = choice
 
     def main_file(self):
         if not os.path.exists(self.quiz_file):
