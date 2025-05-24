@@ -1,3 +1,7 @@
+import os 
+from termcolor import colored 
+import time
+
 class QuizCreator:
     def __init__(self):
     
