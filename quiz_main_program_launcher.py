@@ -16,3 +16,8 @@ class MainMenu:
             print(colored("3. Exit", "red"))
 
             choice = input(colored("\nPlease select an option (1-3): ", "blue")).strip()
+
+            if choice == '1':
+                print(colored("\nLaunching Quiz Creator... ฅ^•ﻌ•^ฅ", "magenta"))
+                time.sleep(1)
+                QuizCreator()
