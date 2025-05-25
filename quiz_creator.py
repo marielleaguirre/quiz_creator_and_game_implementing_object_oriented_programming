@@ -17,25 +17,33 @@ class QuizCreator:
             file.write("-" * 50 + "\n")
 
     def create_quiz(self):
-        question = input(colored("Enter your question: ", "blue")).strip()
-        choices = {}
-        for option in ['a', 'b', 'c', 'd']:
-            choice = input(colored(f" ⋆˚✿˖° Enter choice {option.upper()}: ", "cyan")).strip()
-            choices[option] = choice
+        while True: 
+            question = input(colored("Enter your question: ", "blue")).strip()
+            choices = {}
+            for option in ['a', 'b', 'c', 'd']:
+                choice = input(colored(f" ⋆˚✿˖° Enter choice {option.upper()}: ", "cyan")).strip()
+                choices[option] = choice
 
-        correct = input(colored("Enter the correct answer (a, b, c, or d): ", "green")).strip().lower()
+            correct = input(colored("Enter the correct answer (a, b, c, or d): ", "green")).strip().lower()
 
-        if correct not in choices: 
-            print(colored("Invalid answer (╥﹏╥). Must be one of: a, b, c, d.\n", "red"))
-            continue
+            if correct not in choices: 
+                print(colored("Invalid answer (╥﹏╥). Must be one of: a, b, c, d.\n", "red"))
+                continue
 
-        question_data = {
-            "question": question,
-            "choices": choices,
-            "answer": correct
-        }
-        self.save_to_file(question_data)
-        print(colored("Question saved successfully! /ᐠ. .ᐟ\ Ⳋ ✧\n", "yellow"))  
+            question_data = {
+                "question": question,
+                "choices": choices,
+                "answer": correct
+            }
+            self.save_to_file(question_data)
+            print(colored("Question saved successfully! /ᐠ. .ᐟ\ Ⳋ ✧\n", "yellow"))  
+
+            again = input(colored("Add another question? (๑•᎑•๑) (type 'yes' to continue and 'no' to exit): ", "blue"))
+            if again != 'yes':
+                print(colored("\nCongratulations on creating your quiz!", "magenta", attrs=["bold"]))
+                print(colored("Exiting... Goodbye! (∩˃ω˂∩)", "red", attrs=["bold"]))
+                time.sleep(1)
+                break
 
     def main_file(self):
         if not os.path.exists(self.quiz_file):
