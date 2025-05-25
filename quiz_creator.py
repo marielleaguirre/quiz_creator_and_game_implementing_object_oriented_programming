@@ -29,6 +29,14 @@ class QuizCreator:
             print(colored("Invalid answer (╥﹏╥). Must be one of: a, b, c, d.\n", "red"))
             continue
 
+        question_data = {
+            "question": question,
+            "choices": choices,
+            "answer": correct
+        }
+        self.save_to_file(question_data)
+        print(colored("Question saved successfully! /ᐠ. .ᐟ\ Ⳋ ✧\n", "yellow"))  
+
     def main_file(self):
         if not os.path.exists(self.quiz_file):
             with open(self.quiz_file, "w") as f:
