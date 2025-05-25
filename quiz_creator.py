@@ -54,8 +54,8 @@ class QuizCreator:
 
     def main_file(self):
         if not os.path.exists(self.quiz_file):
-            with open(self.quiz_file, "w") as f:
-                f.write("=== Quiz Questions ===\n\n")
+            with open(self.quiz_file, "w") as file:
+                file.write("=== Quiz Questions ===\n\n")
 
 if __name__ == "__main__":
     creator = QuizCreator()
