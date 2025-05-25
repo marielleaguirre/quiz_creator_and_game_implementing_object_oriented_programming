@@ -131,3 +131,7 @@ class QuizGame:
             message = "Don't worry! Try again and do better next time! (๑•̀ᴗ•́)߼l"
 
         messagebox.showinfo("Quiz Result", message)
+
+if __name__ == "__main__":
+    game = QuizGame()
+    game.start()
