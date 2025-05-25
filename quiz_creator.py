@@ -17,6 +17,11 @@ class QuizCreator:
             file.write("-" * 50 + "\n")
 
     def create_quiz(self):
+        print(colored("\nWelcome to my Python Quiz Creator! *ฅ^•ﻌ•^ฅ*\n", "yellow", attrs=["bold"]))
+        time.sleep(1)
+
+        print(colored("Let's get started! Add as many questions as you want ₍^. .^₎⟆", "green"))
+
         while True: 
             question = input(colored("Enter your question: ", "blue")).strip()
             choices = {}
@@ -36,7 +41,7 @@ class QuizCreator:
                 "answer": correct
             }
             self.save_to_file(question_data)
-            print(colored("Question saved successfully! /ᐠ. .ᐟ\ Ⳋ ✧\n", "yellow"))  
+            print(colored("Question saved successfully! /ᐠ. .ᐟ\\ Ⳋ ✧\n", "yellow"))  
 
             again = input(colored("Add another question? (๑•᎑•๑) (type 'yes' to continue and 'no' to exit): ", "blue"))
             if again != 'yes':
@@ -44,6 +49,8 @@ class QuizCreator:
                 print(colored("Exiting... Goodbye! (∩˃ω˂∩)", "red", attrs=["bold"]))
                 time.sleep(1)
                 break
+        
+        print(colored(f"\nAll questions saved to '{self.quiz_file}'.", "green"))
 
     def main_file(self):
         if not os.path.exists(self.quiz_file):
