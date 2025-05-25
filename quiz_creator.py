@@ -9,7 +9,6 @@ class QuizCreator:
             self.quiz_file += ".txt"
         print(colored(f"Working with file: {os.path.abspath(self.quiz_file)}", "cyan"))
         self.main_file()
-        self.create_quiz()
 
     def save_to_file(self, question_data):
         with open(self.quiz_file, "a", encoding="utf-8") as file:
