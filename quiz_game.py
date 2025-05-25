@@ -101,3 +101,16 @@ class QuizGame:
 
         self.feedback_label.config(text="")
         self.next_button.config(state="disabled")
+
+    def check_answer(self, selected):
+        correct = self.current["current_question"]["answer"]
+        if selected == correct:
+            self.feedback_label.config(text="Correct! (≧□≦) ♡", fg="#4CAF50")
+            self.current["score"] += 1
+        else:
+            correct_text = self.current["current_question"]["choices"][correct]
+            self.feedback_label.config(text=f"Wrong! Correct answer is {correct.upper()}) {correct_text}", fg="crimson")
+
+        for button in self.buttons.values():
+            button.config(state="disabled")
+        self.next_button.config(state="normal")
