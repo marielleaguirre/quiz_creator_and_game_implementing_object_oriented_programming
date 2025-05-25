@@ -20,7 +20,8 @@ class MainMenu:
             if choice == '1':
                 print(colored("\nLaunching Quiz Creator... ฅ^•ﻌ•^ฅ", "magenta"))
                 time.sleep(1)
-                QuizCreator()
+                creator = QuizCreator()
+                creator.create_quiz()
             elif choice == '2':
                 print(colored("\nLaunching Quiz Game... (｡•̀ᴗ-)✧", "magenta"))
                 time.sleep(1)

@@ -6,6 +6,7 @@ class QuizCreator:
     def __init__(self):
         self.quiz_file = input(colored("Enter the quiz file name (e.g., 'quiz_data.txt'): ", "blue")).strip()
         self.main_file()
+        self.create_quiz()
 
     def save_to_file(self, question_data):
         with open(self.quiz_file, "a", encoding="utf-8") as file:
