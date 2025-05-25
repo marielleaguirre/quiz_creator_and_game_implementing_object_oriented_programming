@@ -29,3 +29,5 @@ class MainMenu:
             elif choice == '3':
                 print(colored("\nThank you for using the quiz program! Bye-bye! (✿◕‿◕)", "cyan"))
                 sys.exit()
+            else:
+                print(colored("Invalid choice. Please enter 1, 2, or 3.", "red"))
