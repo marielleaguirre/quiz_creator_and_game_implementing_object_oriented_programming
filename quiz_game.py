@@ -114,3 +114,20 @@ class QuizGame:
         for button in self.buttons.values():
             button.config(state="disabled")
         self.next_button.config(state="normal")
+
+    def end_quiz(self):
+        for widget in self.root.winfo_children():
+            widget.destroy()
+
+        result = f" Quiz Finished! Your Score: {self.current['score']}/{self.current['total']}"
+        result_label = tk.Label(self.root, text=result, font=("Helvetica", 18, "bold"), fg="#4CAF50", bg="#222")
+        result_label.pack(pady=20)
+
+        if self.current["score"] == self.current["total"]:
+            message = "Perfect score! You're a quiz master! ✧*。٩(ˋ・‿・)ى✧*。"
+        elif self.current["score"] >= self.current["total"] // 2:
+            message = "Nice try! You did well! (੭˃ᴗ˂)੭"
+        else:
+            message = "Don't worry! Try again and do better next time! (๑•̀ᴗ•́)߼l"
+
+        messagebox.showinfo("Quiz Result", message)
