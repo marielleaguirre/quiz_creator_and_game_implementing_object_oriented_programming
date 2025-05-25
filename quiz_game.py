@@ -1,6 +1,7 @@
 import os
 import tkinter as tk
 from tkinter import messagebox, filedialog
+from tkinter import ttk
 
 class QuizGame:
     def __init__(self):
@@ -63,3 +64,24 @@ class QuizGame:
         self.setup_ui()
         self.load_next_question()
         self.root.mainloop()
+
+    def setup_ui(self):
+        self.root.configure(bg="#222")
+        style = ttk.Style()
+        style.configure("TButton", font=("Helvetica", 13), padding=6, relief="flat", background="#444")
+
+        self.question_label = tk.Label(self.root, text="", font=("Helvetica", 16, "bold"), wraplength=500, justify="center", fg="white", bg="#222")
+        self.question_label.pack(pady=20)
+
+        self.buttons = {}
+        for key in ['a', 'b', 'c', 'd']:
+            self.buttons[key] = tk.Button(self.root, text="", font=("Helvetica", 14), width=30, bg="#333", fg="white",
+                                          activebackground="#222", activeforeground="blue",
+                                          command=lambda k=key: self.check_answer(k))
+            self.buttons[key].pack(pady=5)
+
+        self.feedback_label = tk.Label(self.root, text="", font=("Helvetica", 14), fg="white", bg="#222")
+        self.feedback_label.pack(pady=10)
+
+        self.next_button = tk.Button(self.root, text="Next Question ⭢", font=("Helvetica", 12), bg="#007acc", fg="white", command=self.load_next_question)
+        self.next_button.pack(pady=10)
