@@ -1,5 +1,6 @@
 import os
 import tkinter as tk
+from tkinter import messagebox, filedialog
 
 class QuizGame:
     def __init__(self):
@@ -44,3 +45,21 @@ class QuizGame:
                 continue
 
         return questions
+    
+    def start(self):
+        file_path = filedialog.askopenfilename(title="Select Quiz File", filetypes=[("Text Files", "*.txt")])
+        if not file_path:
+            messagebox.showerror("No file selected", "You must select a quiz file to proceed")
+            return
+
+        questions = self.load_questions(file_path)
+        if not questions:
+            messagebox.showerror("No Questions Found", "The selected file does not contain valid quiz questions.")
+            return
+
+        self.current["data"] = questions
+        self.current["total"] = len(questions)
+        self.root.deiconify()
+        self.setup_ui()
+        self.load_next_question()
+        self.root.mainloop()
