@@ -21,3 +21,8 @@ class MainMenu:
                 print(colored("\nLaunching Quiz Creator... ฅ^•ﻌ•^ฅ", "magenta"))
                 time.sleep(1)
                 QuizCreator()
+            elif choice == '2':
+                print(colored("\nLaunching Quiz Game... (｡•̀ᴗ-)✧", "magenta"))
+                time.sleep(1)
+                game = QuizGame()
+                game.start()
