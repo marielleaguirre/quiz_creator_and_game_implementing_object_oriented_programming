@@ -27,7 +27,11 @@ class MainMenu:
                 game = QuizGame()
                 game.start()
             elif choice == '3':
-                print(colored("\nThank you for using the quiz program! Bye-bye! (✿◕‿◕)", "cyan"))
+                print(colored("\nThank you for using the quiz program! Bye-bye! (✿ ◕‿◕)", "cyan"))
                 sys.exit()
             else:
                 print(colored("Invalid choice. Please enter 1, 2, or 3.", "red"))
+
+if __name__ == "__main__":
+    display_app = MainMenu()
+    display_app.display_menu()
