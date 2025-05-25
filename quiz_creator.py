@@ -16,6 +16,12 @@ class QuizCreator:
             choice = input(colored(f" ⋆˚✿˖° Enter choice {option.upper()}: ", "cyan")).strip()
             choices[option] = choice
 
+        correct = input(colored("Enter the correct answer (a, b, c, or d): ", "green")).strip().lower()
+
+        if correct not in choices: 
+            print(colored("Invalid answer (╥﹏╥). Must be one of: a, b, c, d.\n", "red"))
+            continue
+
     def main_file(self):
         if not os.path.exists(self.quiz_file):
             with open(self.quiz_file, "w") as f:
