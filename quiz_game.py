@@ -1,4 +1,5 @@
 import os
+import random
 import tkinter as tk
 from tkinter import messagebox, filedialog
 from tkinter import ttk
@@ -85,3 +86,18 @@ class QuizGame:
 
         self.next_button = tk.Button(self.root, text="Next Question ⭢", font=("Helvetica", 12), bg="#007acc", fg="white", command=self.load_next_question)
         self.next_button.pack(pady=10)
+
+    def load_next_question(self):
+        if not self.current["data"]:
+            return self.end_quiz()
+
+        self.current["current_question"] = random.choice(self.current["data"])
+        self.current["data"].remove(self.current["current_question"])
+
+        self.question_label.config(text=self.current["current_question"]["questions"])
+        for key in ['a', 'b', 'c', 'd']:
+            choice = self.current["current_question"]["choices"][key]
+            self.buttons[key].config(text=f"{key.upper()}) {choice}", state="normal")
+
+        self.feedback_label.config(text="")
+        self.next_button.config(state="disabled")
