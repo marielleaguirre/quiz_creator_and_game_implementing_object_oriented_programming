@@ -5,6 +5,9 @@ import time
 class QuizCreator:
     def __init__(self):
         self.quiz_file = input(colored("Enter the quiz file name (e.g., 'quiz_data.txt'): ", "blue")).strip()
+        if not self.quiz_file.endswith(".txt"):
+            self.quiz_file += ".txt"
+        print(colored(f"Working with file: {os.path.abspath(self.quiz_file)}", "cyan"))
         self.main_file()
         self.create_quiz()
 
