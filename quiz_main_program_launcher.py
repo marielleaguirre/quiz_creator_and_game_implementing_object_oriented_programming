@@ -26,3 +26,6 @@ class MainMenu:
                 time.sleep(1)
                 game = QuizGame()
                 game.start()
+            elif choice == '3':
+                print(colored("\nThank you for using the quiz program! Bye-bye! (✿◕‿◕)", "cyan"))
+                sys.exit()
