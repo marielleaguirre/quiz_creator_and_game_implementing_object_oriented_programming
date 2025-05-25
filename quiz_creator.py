@@ -7,7 +7,14 @@ class QuizCreator:
         self.quiz_file = input(colored("Enter the quiz file name (e.g., 'quiz_data.txt'): ", "blue")).strip()
         self.main_file()
 
-    def save_to_file(self):
+    def save_to_file(self, question_data):
+        with open(self.quiz_file, "a", encoding="utf-8") as file:
+            file.write("\n" + "-" * 50 + "\n")
+            file.write("Question:\n" + question_data['question'] + "\n")
+            for label, choice in question_data['choices'].items():
+                file.write(f" {label}) {choice}\n")
+            file.write("Answer:\n" + question_data['answer'] + "\n")
+            file.write("-" * 50 + "\n")
 
     def create_quiz(self):
         question = input(colored("Enter your question: ", "blue")).strip()
